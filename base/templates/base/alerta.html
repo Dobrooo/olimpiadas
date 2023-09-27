@@ -1,0 +1,17 @@
+{% extends "base/principal.html" %}
+
+
+{%block content%}
+
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Codigo azul">
+
+
+</form>
+
+<?php isset($_POST["activa"]) ? print $_POST["activa"] : ""; ?> 
+
+{%endblock content%}

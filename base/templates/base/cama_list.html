@@ -1,0 +1,46 @@
+{% extends 'base/principal.html' %}
+{% block content %}
+
+
+
+
+{% if request.user.is_authenticated %}
+    {{request.user}}
+    <a href="{% url 'logout' %}">Salir</a>
+{% else %}
+    <a href="{% url 'login' %}">Ingresar</a>
+{% endif %}
+<hr>
+
+
+
+<h1>Lista de Habitaciones</h1>
+
+
+
+<table>
+    <tr>
+        <th>Camas</th>
+    </tr>
+
+    {% for cama in camas %}
+
+    <tr>
+       <th> {{cama.numero}}</th>
+       <th> <button><a href="{% url 'alerta' %}">Codigo azul</a></button></th>
+       <th> <button><a href="{% url 'detalle' cama.id %}">Ver detalle</a></button></th>
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
